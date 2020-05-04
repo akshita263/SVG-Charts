@@ -10,6 +10,8 @@ import StackedBar from './Screens/StackedBar';
 import LineChart from './Screens/LineChart';
 import PieChart from './Screens/PieChart';
 import Progress from './Screens/Progress';
+import YAxis from './Screens/YAxis';
+import XAxis from './Screens/XAxis';
 
 function HomeScreen({ navigation }) {
   return (
@@ -17,7 +19,7 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.container}
         onPress={() => navigation.navigate('Area Chart')}>
             <View style={styles.listView}>
-                <Text style={{ fontSize: 18}}>
+                <Text style={{ fontSize: 20}}>
                   Area Chart  
                 </Text>                       
             </View>
@@ -25,7 +27,7 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.container}
         onPress={() => navigation.navigate('Stacked Area Chart')}>
             <View style={styles.listView}>
-                <Text style={{ fontSize: 18}}>
+                <Text style={{ fontSize: 20}}>
                   Stacked Area Chart  
                 </Text>                       
             </View>
@@ -33,7 +35,7 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.container}
         onPress={() => navigation.navigate('Bar Chart')}>
             <View style={styles.listView}>
-                <Text style={{ fontSize: 18}}>
+                <Text style={{ fontSize: 20}}>
                   Bar Chart  
                 </Text>                       
             </View>
@@ -41,7 +43,7 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.container}
         onPress={() => navigation.navigate('Stacked Bar Chart')}>
             <View style={styles.listView}>
-                <Text style={{ fontSize: 18}}>
+                <Text style={{ fontSize: 20}}>
                   Stacked Bar Chart  
                 </Text>                       
             </View>
@@ -49,7 +51,7 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.container}
         onPress={() => navigation.navigate('Line Chart')}>
             <View style={styles.listView}>
-                <Text style={{ fontSize: 18}}>
+                <Text style={{ fontSize: 20}}>
                   Line Chart  
                 </Text>                       
             </View>
@@ -57,7 +59,7 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.container}
         onPress={() => navigation.navigate('Pie Chart')}>
             <View style={styles.listView}>
-                <Text style={{ fontSize: 18}}>
+                <Text style={{ fontSize: 20}}>
                   Pie Chart  
                 </Text>                       
             </View>
@@ -65,12 +67,27 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.container}
         onPress={() => navigation.navigate('Progress Circle')}>
             <View style={styles.listView}>
-                <Text style={{ fontSize: 18}}>
+                <Text style={{ fontSize: 20}}>
                   Progress Circle  
                 </Text>                       
             </View>
       </TouchableOpacity>
-
+      <TouchableOpacity style={styles.container}
+        onPress={() => navigation.navigate('Y-Axis')}>
+            <View style={styles.listView}>
+                <Text style={{ fontSize: 20}}>
+                  Y-Axis
+                </Text>                       
+            </View>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.container}
+        onPress={() => navigation.navigate('X-Axis')}>
+            <View style={styles.listView}>
+                <Text style={{ fontSize: 20}}>
+                  X-Axis
+                </Text>                       
+            </View>
+      </TouchableOpacity>
 
         
     </View>
@@ -115,7 +132,12 @@ function App() {
         <Stack.Screen name="Progress Circle" >
           {props => <Progress />}
         </Stack.Screen>
-        
+        <Stack.Screen name="Y-Axis" >
+          {props => <YAxis />}
+        </Stack.Screen>
+        <Stack.Screen name="X-Axis" >
+          {props => <XAxis />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

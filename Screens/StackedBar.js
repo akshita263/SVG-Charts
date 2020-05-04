@@ -1,6 +1,5 @@
 import React from 'react'
 import { StackedBarChart } from 'react-native-svg-charts'
-import * as shape from 'd3-shape'
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native'
  
 

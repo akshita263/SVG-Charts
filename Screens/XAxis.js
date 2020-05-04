@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart, Grid } from 'react-native-svg-charts'
+import { BarChart, Grid, XAxis } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
  
 
@@ -11,7 +11,7 @@ export default class BarChartEx extends React.PureComponent {
         return (
             <View>
             <Text style={styles.title}>
-                BAR CHART
+                X-AXIS
             </Text>
             <TouchableOpacity style={styles.chart}>
             <BarChart 
@@ -21,6 +21,13 @@ export default class BarChartEx extends React.PureComponent {
             contentInset={{ top: 20, bottom: 20 }}>
                 <Grid />
             </BarChart>
+            <XAxis
+                    style={{ marginHorizontal: -10 }}
+                    data={data}
+                    formatLabel={(value, index) => index}
+                    contentInset={{ left: 10, right: 10 }}
+                    svg={{ fontSize: 10, fill: 'black' }}
+                />
             </TouchableOpacity>
             </View>
         )
