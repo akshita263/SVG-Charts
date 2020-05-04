@@ -3,7 +3,7 @@ import * as React from 'react';
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import DetailsScreen from './Screens/DetailsScreen';
+import AreaChart from './Screens/AreaChart';
 
 function HomeScreen({ navigation }) {
   return (
@@ -11,19 +11,12 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.container}>
             <View style={styles.listView}>
                 <Text style={{ fontSize: 18}} 
-                  onPress={() => navigation.navigate('Details')}>
-                  Detail Screen  
+                  onPress={() => navigation.navigate('Area Chart')}>
+                  Area Chart  
                 </Text>                       
             </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.container}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 18}} 
-                  onPress={() => navigation.navigate('Details')}>
-                  Detail Screen  
-                </Text>                      
-            </View>
-        </TouchableOpacity>
+        
     </View>
   );
 }
@@ -45,8 +38,8 @@ function App() {
         }
       }}>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" >
-          {props => <DetailsScreen />}
+        <Stack.Screen name="Area Chart" >
+          {props => <AreaChart />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
