@@ -8,6 +8,8 @@ import StackedArea from './Screens/StackedArea';
 import Bar from './Screens/Bar';
 import StackedBar from './Screens/StackedBar';
 import LineChart from './Screens/LineChart';
+import PieChart from './Screens/PieChart';
+import Progress from './Screens/Progress';
 
 function HomeScreen({ navigation }) {
   return (
@@ -52,6 +54,22 @@ function HomeScreen({ navigation }) {
                 </Text>                       
             </View>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.container}
+        onPress={() => navigation.navigate('Pie Chart')}>
+            <View style={styles.listView}>
+                <Text style={{ fontSize: 18}}>
+                  Pie Chart  
+                </Text>                       
+            </View>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.container}
+        onPress={() => navigation.navigate('Progress Circle')}>
+            <View style={styles.listView}>
+                <Text style={{ fontSize: 18}}>
+                  Progress Circle  
+                </Text>                       
+            </View>
+      </TouchableOpacity>
 
 
         
@@ -91,6 +109,13 @@ function App() {
         <Stack.Screen name="Line Chart" >
           {props => <LineChart />}
         </Stack.Screen>
+        <Stack.Screen name="Pie Chart" >
+          {props => <PieChart />}
+        </Stack.Screen>
+        <Stack.Screen name="Progress Circle" >
+          {props => <Progress />}
+        </Stack.Screen>
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

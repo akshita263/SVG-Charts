@@ -1,25 +1,26 @@
 import React from 'react'
-import { LineChart, Grid } from 'react-native-svg-charts'
+import { ProgressCircle } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
  
 
-export default class LineChartEx extends React.PureComponent {
+export default class ProgressEx extends React.PureComponent {
     render() {
-        const data = [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80]
  
         return (
             <View>
             <Text style={styles.title}>
-                LINE CHART
+                PROGRESS CIRCLE
             </Text>
             <TouchableOpacity style={styles.chart}>
-            <LineChart
-                style={{ height: 250 }}
-                data={data}
-                svg={{ stroke: '#035b96', strokeWidth: 4 }}
-                contentInset={{ top: 20, bottom: 20 }}>
-                <Grid />
-            </LineChart>
+            <ProgressCircle 
+            style={{ height: 250 }}
+             progress={0.7} 
+             progressColor={'#6497b1'} 
+             backgroundColor= '#eee'
+             strokeWidth= '25'
+             cornerRadius= '60'
+
+             />
             </TouchableOpacity>
             </View>
         )
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     chart:{
         margin: 20,
         borderWidth: 5,
-        padding: 10,
+        padding: 30,
     },
     title: {
         fontSize: 30,
