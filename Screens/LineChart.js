@@ -1,27 +1,26 @@
 import React from 'react'
-import { AreaChart, Grid } from 'react-native-svg-charts'
+import { LineChart, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
  
 
-export default class AreaChartEx extends React.PureComponent {
+export default class LineChartEx extends React.PureComponent {
     render() {
         const data = [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80]
  
         return (
             <View>
             <Text style={styles.title}>
-                AREA CHART
+                LINE CHART
             </Text>
             <TouchableOpacity style={styles.chart}>
-            <AreaChart 
-                style={{ height: 300 }}
+            <LineChart
+                style={{ height: 250 }}
                 data={data}
-                contentInset={{ top: 30, bottom: 30 }}
-                curve={shape.curveNatural}
-                svg={{ fill: '#035b9661' }} >
+                svg={{ stroke: '#035b96', strokeWidth: 4 }}
+                contentInset={{ top: 20, bottom: 20 }}>
                 <Grid />
-            </AreaChart>
+            </LineChart>
             </TouchableOpacity>
             </View>
         )
