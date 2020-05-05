@@ -19,7 +19,7 @@ export default class AreaChartEx extends React.PureComponent {
                 data={data}
                 contentInset={{ top: 30, bottom: 30 }}
                 curve={shape.curveNatural}
-                svg={{ fill: '#035b9661' }} >
+                svg={{ fill: '#035b9661', strokeWidth: 1 , stroke: '#035b96'}} >
                 <Grid />
             </AreaChart>
             </TouchableOpacity>
