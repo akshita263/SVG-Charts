@@ -102,7 +102,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
         headerStyle:{
-          backgroundColor: '#283655',
+          backgroundColor: '#dfa290',
           height: 80,
         },
         headerTintColor: 'white', 
@@ -146,7 +146,7 @@ function App() {
 const styles = StyleSheet.create({
   container:{ 
     padding: 15,
-    backgroundColor: '#dfe3ee',
+    backgroundColor: '#ffe9dc',
     borderBottomColor: 'white',
     borderBottomWidth: 2,
 },
