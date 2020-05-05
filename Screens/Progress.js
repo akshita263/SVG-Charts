@@ -17,8 +17,8 @@ export default class ProgressEx extends React.PureComponent {
              progress={0.7} 
              progressColor={'#6497b1'} 
              backgroundColor= '#eee'
-             strokeWidth= '25'
-             cornerRadius= '60'
+             strokeWidth= {30}
+             cornerRadius= {5}
 
              />
             </TouchableOpacity>

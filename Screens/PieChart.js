@@ -25,7 +25,7 @@ export default class PieChartEx extends React.PureComponent {
                 PIE CHART
             </Text>
             <TouchableOpacity style={styles.chart}>
-            <PieChart style={{ height: 250 }} data={pieData} innerRadius="0%" padAngle="0.0174533" />
+            <PieChart style={{ height: 250 }} data={pieData} innerRadius="0%" padAngle={0.0174533} />
             </TouchableOpacity>
             </View>
         )
