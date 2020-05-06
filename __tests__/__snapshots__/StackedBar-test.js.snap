@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTScrollView>
+  <View>
+    <Text
+      style={
+        Object {
+          "alignSelf": "center",
+          "fontSize": 30,
+          "padding": 20,
+        }
+      }
+    >
+      STACKED BAR CHART: VERTICAL
+    </Text>
+    <View
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderWidth": 5,
+          "margin": 20,
+          "opacity": 1,
+          "padding": 8,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": 300,
+          }
+        }
+      >
+        <View
+          onLayout={[Function]}
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        />
+      </View>
+    </View>
+    <Text
+      style={
+        Object {
+          "alignSelf": "center",
+          "fontSize": 30,
+          "padding": 20,
+        }
+      }
+    >
+      STACKED BAR CHART: HORIZONTAL
+    </Text>
+    <View
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderWidth": 5,
+          "margin": 20,
+          "opacity": 1,
+          "padding": 8,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": 300,
+          }
+        }
+      >
+        <View
+          onLayout={[Function]}
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
