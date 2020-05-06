@@ -1,4 +1,5 @@
 # SVG-Charts
+//Issues Faced
 While creating the Svg-Charts application the first issue that i faced was in using the react-native-svg-charts library.
 I learnt that to use the react-native-svg-charts library we first need to make sure that react-native-svg is installed and linked to the project successfully.
 Once the react-native-svg library is installed we will then download the react-native-svg-charts library and then we can continue to work with charts. Incase the problem still persist, it can be resolved by running the command "npm install" in the terminal and restarting the application. 
