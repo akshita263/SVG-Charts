@@ -1,7 +1,8 @@
 import React from 'react'
 import { PieChart } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
- 
+import Header from '../Component/Header';
+
 
 export default class PieChartEx extends React.PureComponent {
     render() {
@@ -21,9 +22,10 @@ export default class PieChartEx extends React.PureComponent {
  
         return (
             <View>
-            <Text style={styles.title}>
-                PIE CHART
-            </Text>
+                <View>
+                <Header title='PIE CHART'/>
+                </View>
+            
             <TouchableOpacity style={styles.chart}>
             <PieChart style={{ height: 250 }} data={pieData} innerRadius="0%" padAngle={0.0174533} />
             </TouchableOpacity>

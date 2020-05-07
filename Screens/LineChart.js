@@ -1,7 +1,8 @@
 import React from 'react'
 import { LineChart, Grid } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
- 
+import Header from '../Component/Header';
+
 
 export default class LineChartEx extends React.PureComponent {
     render() {
@@ -9,9 +10,10 @@ export default class LineChartEx extends React.PureComponent {
  
         return (
             <View>
-            <Text style={styles.title}>
-                LINE CHART
-            </Text>
+                <View>
+                <Header title='LINE CHART'/>
+                </View>
+            
             <TouchableOpacity style={styles.chart}>
             <LineChart
                 style={{ height: 250 }}

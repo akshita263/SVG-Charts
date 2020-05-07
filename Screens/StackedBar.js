@@ -1,5 +1,6 @@
 import React from 'react'
 import { StackedBarChart } from 'react-native-svg-charts'
+import Header from '../Component/Header';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native'
  
 
@@ -40,6 +41,9 @@ export default class StackedBarEx extends React.PureComponent {
 
         return (
             <ScrollView>
+                <View>
+                <Header title='STACKED BAR CHART'/>
+                </View>
                 <Text style={styles.title}>
                     STACKED BAR CHART: VERTICAL
                 </Text>

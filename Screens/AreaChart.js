@@ -2,7 +2,8 @@ import React from 'react'
 import { AreaChart, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
- 
+import Header from '../Component/Header';
+
 
 export default class AreaChartEx extends React.PureComponent {
     render() {
@@ -10,9 +11,10 @@ export default class AreaChartEx extends React.PureComponent {
  
         return (
             <View>
-            <Text style={styles.title}>
-                AREA CHART
-            </Text>
+                <View>
+                <Header title='AREA CHART'/>
+                </View>
+            
             <TouchableOpacity style={styles.chart}>
             <AreaChart 
                 style={{ height: 300 }}

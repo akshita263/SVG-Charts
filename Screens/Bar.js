@@ -1,7 +1,8 @@
 import React from 'react'
 import { BarChart, Grid } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
- 
+import Header from '../Component/Header';
+
 
 export default class BarChartEx extends React.PureComponent {
     render() {
@@ -10,9 +11,10 @@ export default class BarChartEx extends React.PureComponent {
   
         return (
             <View>
-            <Text style={styles.title}>
-                BAR CHART
-            </Text>
+                <View>
+                <Header title='BAR CHART'/>
+                </View>
+            
             <TouchableOpacity style={styles.chart}>
             <BarChart 
             style={{ height: 300 }} 

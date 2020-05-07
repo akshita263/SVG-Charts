@@ -1,6 +1,8 @@
 import React from 'react'
 import { LineChart, YAxis, Grid } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import Header from '../Component/Header';
+
  
 
 export default class YAxisEx extends React.PureComponent {
@@ -11,9 +13,10 @@ export default class YAxisEx extends React.PureComponent {
  
         return (
             <View>
-            <Text style={styles.title}>
-                Y-AXIS
-            </Text>
+                <View>
+                <Header title='Y-AXIS'/>
+                </View>
+            
             <TouchableOpacity style={styles.chart}>
                 <View style={{ height: 300, flexDirection: 'row' }}>
                     <YAxis

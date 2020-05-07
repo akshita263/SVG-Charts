@@ -1,6 +1,8 @@
 import React from 'react'
 import { ProgressCircle } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import Header from '../Component/Header';
+
  
 
 export default class ProgressEx extends React.PureComponent {
@@ -8,9 +10,10 @@ export default class ProgressEx extends React.PureComponent {
  
         return (
             <View>
-            <Text style={styles.title}>
-                PROGRESS CIRCLE
-            </Text>
+                <View>
+                <Header title='PROGRESS CIRCLE'/>
+                </View>
+            
             <TouchableOpacity style={styles.chart}>
             <ProgressCircle 
             style={{ height: 250 }}

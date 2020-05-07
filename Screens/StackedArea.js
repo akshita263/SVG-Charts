@@ -2,7 +2,8 @@ import React from 'react'
 import { StackedAreaChart } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
- 
+import Header from '../Component/Header';
+
 
 export default class StackedAreaEx extends React.PureComponent {
     render() {
@@ -47,9 +48,10 @@ export default class StackedAreaEx extends React.PureComponent {
 
         return (
             <View>
-            <Text style={styles.title}>
-                STACKED AREA CHART
-            </Text>
+                <View>
+                <Header title='STACKED AREA CHART'/>
+                </View>
+            
             <TouchableOpacity style={styles.chart}>
             <StackedAreaChart
                 style={{ height: 250 }}
