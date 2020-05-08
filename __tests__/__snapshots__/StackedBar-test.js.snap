@@ -3,6 +3,31 @@
 exports[`renders correctly 1`] = `
 <RCTScrollView>
   <View>
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#007373",
+            "height": 80,
+            "marginBottom": 15,
+            "padding": 13,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 37,
+              "textAlign": "center",
+            }
+          }
+        >
+          STACKED BAR CHART
+        </Text>
+      </View>
+    </View>
     <Text
       style={
         Object {

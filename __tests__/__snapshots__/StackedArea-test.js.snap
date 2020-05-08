@@ -2,17 +2,31 @@
 
 exports[`renders correctly 1`] = `
 <View>
-  <Text
-    style={
-      Object {
-        "alignSelf": "center",
-        "fontSize": 30,
-        "padding": 20,
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#007373",
+          "height": 80,
+          "marginBottom": 15,
+          "padding": 13,
+        }
       }
-    }
-  >
-    STACKED AREA CHART
-  </Text>
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 37,
+            "textAlign": "center",
+          }
+        }
+      >
+        STACKED AREA CHART
+      </Text>
+    </View>
+  </View>
   <View
     accessible={true}
     focusable={false}
