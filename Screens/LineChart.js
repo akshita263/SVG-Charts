@@ -10,10 +10,6 @@ export default class LineChartEx extends React.PureComponent {
  
         return (
             <View>
-                <View>
-                <Header title='LINE CHART'/>
-                </View>
-            
             <TouchableOpacity style={styles.chart}>
             <LineChart
                 style={{ height: 250 }}

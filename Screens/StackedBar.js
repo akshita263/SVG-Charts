@@ -41,9 +41,6 @@ export default class StackedBarEx extends React.PureComponent {
 
         return (
             <ScrollView>
-                <View>
-                <Header title='STACKED BAR CHART'/>
-                </View>
                 <Text style={styles.title}>
                     STACKED BAR CHART: VERTICAL
                 </Text>

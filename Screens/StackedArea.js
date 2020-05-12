@@ -48,10 +48,6 @@ export default class StackedAreaEx extends React.PureComponent {
 
         return (
             <View>
-                <View>
-                <Header title='STACKED AREA CHART'/>
-                </View>
-            
             <TouchableOpacity style={styles.chart}>
             <StackedAreaChart
                 style={{ height: 250 }}

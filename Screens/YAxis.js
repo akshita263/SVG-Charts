@@ -13,10 +13,6 @@ export default class YAxisEx extends React.PureComponent {
  
         return (
             <View>
-                <View>
-                <Header title='Y-AXIS'/>
-                </View>
-            
             <TouchableOpacity style={styles.chart}>
                 <View style={{ height: 300, flexDirection: 'row' }}>
                     <YAxis

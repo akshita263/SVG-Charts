@@ -10,10 +10,6 @@ export default class ProgressEx extends React.PureComponent {
  
         return (
             <View>
-                <View>
-                <Header title='PROGRESS CIRCLE'/>
-                </View>
-            
             <TouchableOpacity style={styles.chart}>
             <ProgressCircle 
             style={{ height: 250 }}

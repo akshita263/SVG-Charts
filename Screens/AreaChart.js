@@ -11,10 +11,6 @@ export default class AreaChartEx extends React.PureComponent {
  
         return (
             <View>
-                <View>
-                <Header title='AREA CHART'/>
-                </View>
-            
             <TouchableOpacity style={styles.chart}>
             <AreaChart 
                 style={{ height: 300 }}

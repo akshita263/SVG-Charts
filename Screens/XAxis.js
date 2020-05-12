@@ -11,10 +11,6 @@ export default class BarChartEx extends React.PureComponent {
   
         return (
             <View>
-                <View>
-                <Header title='X-AXIS'/>
-                </View>
-            
             <TouchableOpacity style={styles.chart}>
             <BarChart 
             style={{ height: 300 }} 
