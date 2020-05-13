@@ -1,25 +1,38 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
-import Header from '../Component/Header';
+import { Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Deviation from './deviation/Deviation'
 
-export default class Home extends Component {
-    render() {
-        return (
-            <View>
-                <View>
-                <Header title='HOME'/>
-                </View>
-                <View style={styles.textContainer}>
-                    <Text style={styles.header}>WELCOME!</Text>
-                    <Text style={styles.subhead}>Learn about SVG CHARTS</Text>
-                    <Text style={styles.text}>Swipe to explore  <Icon name="arrow-right" size={25}/></Text>
-                    
-                </View>
-            </View>
-        )
-    }
-}
+
+function HomeScreen({ navigation }) {
+    return (
+      <ScrollView style={styles.main}>
+        <TouchableOpacity style={styles.container}
+          onPress={() => navigation.navigate('Deviation')}>
+              <View style={styles.listView}>
+                  <Text style={{ fontSize: 20}}>
+                    Deviation  
+                  </Text>                       
+              </View>
+        </TouchableOpacity>
+      </ScrollView>
+    );
+  }
+
+  const Stack = createStackNavigator();
+
+  function Home() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Deviation" component={Deviation} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
 
 const styles = StyleSheet.create({
     textContainer:{
@@ -40,3 +53,5 @@ const styles = StyleSheet.create({
     }
 
 })
+
+export default HomeScreen;

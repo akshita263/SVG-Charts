@@ -1,7 +1,6 @@
 import React from 'react'
 import { BarChart, Grid } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native'
-import Header from '../Component/Header';
 
 
 export default class BarChartEx extends React.PureComponent {
@@ -20,6 +19,7 @@ export default class BarChartEx extends React.PureComponent {
                 style={{ height: 300 }} 
                 data={data} 
                 svg={{ fill }} 
+                horizontal={true}
                 contentInset={{ top: 20, bottom: 20 }}>
                     <Grid />
                 </BarChart>

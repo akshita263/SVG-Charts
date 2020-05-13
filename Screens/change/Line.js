@@ -1,7 +1,6 @@
 import React from 'react'
 import { LineChart, Grid, Path } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
-import Header from '../Component/Header';
 
 
 export default class LineChartEx extends React.PureComponent {

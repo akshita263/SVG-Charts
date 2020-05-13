@@ -1,95 +1,70 @@
 // In App.js in a new project
 import * as React from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableOpacity, ScrollView , BackHandler} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/Ionicons';
-import AreaChart from './Screens/AreaChart';
-import StackedArea from './Screens/StackedArea';
-import Bar from './Screens/Bar';
-import StackedBar from './Screens/StackedBar';
-import LineChart from './Screens/LineChart';
-import PieChart from './Screens/PieChart';
-import Progress from './Screens/Progress';
-import YAxis from './Screens/YAxis';
-import XAxis from './Screens/XAxis';
+import Ranking from './Screens/ranking/Ranking';
+import Deviation from './Screens/deviation/Deviation';
+import Correlation from './Screens/correltaion/Correlation';
+import Change from './Screens/change/Change';
+import Magnitude from './Screens/magnitude/Magnitude';
+import Part from './Screens/part/Part';
+import Home from './Screens/Home';
 
-function HomeScreen({ navigation }) {
+
+function HomeScreen({navigation}) {
   return (
     <ScrollView style={styles.main}>
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('Area Chart')}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 20}}>
-                  Area Chart  
-                </Text>                       
-            </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('Stacked Area Chart')}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 20}}>
-                  Stacked Area Chart  
-                </Text>                       
-            </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('Bar Chart')}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 20}}>
-                  Bar Chart  
-                </Text>                       
-            </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('Stacked Bar Chart')}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 20}}>
-                  Stacked Bar Chart  
-                </Text>                       
-            </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('Line Chart')}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 20}}>
-                  Line Chart  
-                </Text>                       
-            </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('Pie Chart')}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 20}}>
-                  Pie Chart  
-                </Text>                       
-            </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('Progress Circle')}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 20}}>
-                  Progress Circle  
-                </Text>                       
-            </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('Y-Axis')}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 20}}>
-                  Y-Axis
-                </Text>                       
-            </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('X-Axis')}>
-            <View style={styles.listView}>
-                <Text style={{ fontSize: 20}}>
-                  X-Axis
-                </Text>                       
-            </View>
-      </TouchableOpacity>    
+        <TouchableOpacity style={styles.container}
+          onPress={() => navigation.navigate('Deviation')}>
+              <View style={styles.listView}>
+                  <Text style={{ fontSize: 20}}>
+                    Deviation Charts
+                  </Text>                       
+              </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.container}
+          onPress={() => navigation.navigate('Ranking')}>
+              <View style={styles.listView}>
+                  <Text style={{ fontSize: 20}}>
+                    Ranking Charts 
+                  </Text>                       
+              </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.container}
+          onPress={() => navigation.navigate('Magnitude')}>
+              <View style={styles.listView}>
+                  <Text style={{ fontSize: 20}}>
+                    Magintude Charts  
+                  </Text>                       
+              </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.container}
+          onPress={() => navigation.navigate('Change')}>
+              <View style={styles.listView}>
+                  <Text style={{ fontSize: 20}}>
+                    Change Over Time Charts  
+                  </Text>                       
+              </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.container}
+          onPress={() => navigation.navigate('Correlation')}>
+              <View style={styles.listView}>
+                  <Text style={{ fontSize: 20}}>
+                    Co-relation Charts  
+                  </Text>                       
+              </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.container}
+          onPress={() => navigation.navigate('Part')}>
+              <View style={styles.listView}>
+                  <Text style={{ fontSize: 20}}>
+                    Part-To-Whole Charts  
+                  </Text>                       
+              </View>
+        </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -99,10 +74,10 @@ const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
 const HomeStackScreen =({navigation}) =>(
-  <Stack.Navigator screenOptions={{
+  <Stack.Navigator  screenOptions={{
     headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
+      backgroundColor: '#900c3e',
+      height: 70,
     },
     headerTintColor: 'white', 
     HeaderTitleStytle:{
@@ -110,47 +85,27 @@ const HomeStackScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
+        name='ios-menu' size={30} backgroundColor="#900c3e" padding={ 20}
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
   }}>
       <Stack.Screen name="SVG CHARTS" component={HomeScreen} />
-      <Stack.Screen name="Area Chart" >
-        {props => <AreaChart />}
-      </Stack.Screen>
-      <Stack.Screen name="Stacked Area Chart" >
-          {props => <StackedArea />}
-        </Stack.Screen>
-        <Stack.Screen name="Bar Chart" >
-          {props => <Bar />}
-        </Stack.Screen>
-        <Stack.Screen name="Stacked Bar Chart" >
-          {props => <StackedBar />}
-        </Stack.Screen>
-        <Stack.Screen name="Line Chart" >
-          {props => <LineChart />}
-        </Stack.Screen>
-        <Stack.Screen name="Pie Chart" >
-          {props => <PieChart />}
-        </Stack.Screen>
-        <Stack.Screen name="Progress Circle" >
-          {props => <Progress />}
-        </Stack.Screen>
-        <Stack.Screen name="Y-Axis" >
-          {props => <YAxis />}
-        </Stack.Screen>
-        <Stack.Screen name="X-Axis" >
-          {props => <XAxis />}
-        </Stack.Screen>
+      <Stack.Screen name="Deviation" component={Deviation} />
+      <Stack.Screen name="Ranking" component={Ranking} />
+      <Stack.Screen name="Magnitude" component={Magnitude} />
+      <Stack.Screen name="Change" component={Change} />
+      <Stack.Screen name="Correlation" component={Correlation} />
+      <Stack.Screen name="Part" component={Part} />
+
     </Stack.Navigator> 
 );
 
-const AreaChartScreen =({navigation}) =>(
+const DeviationScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
+      backgroundColor: '#900c3e',
+      height: 70,
     },
     headerTintColor: 'white', 
     HeaderTitleStytle:{
@@ -158,22 +113,20 @@ const AreaChartScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
+        name='ios-menu' size={30} backgroundColor="#900c3e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
   }}>
-      <Stack.Screen name="Area Chart" >
-        {props => <AreaChart />}
-      </Stack.Screen>
-    </Stack.Navigator>
+    <Stack.Screen name="Deviation" component={Deviation} />
+  </Stack.Navigator>
 );
 
-const StackedAreaScreen =({navigation}) =>(
+const RankingScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
+      backgroundColor: '#900c3e',
+      height: 70,
     },
     headerTintColor: 'white', 
     HeaderTitleStytle:{
@@ -181,22 +134,20 @@ const StackedAreaScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
+        name='ios-menu' size={30} backgroundColor="#900c3e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
   }}>
-      <Stack.Screen name="Stacked Area Chart" >
-          {props => <StackedArea />}
-      </Stack.Screen> 
-    </Stack.Navigator>
+    <Stack.Screen name="Ranking" component={Ranking} />
+  </Stack.Navigator>
 );
 
-const BarChartScreen =({navigation}) =>(
+const MagnitudeScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
+      backgroundColor: '#900c3e',
+      height: 70,
     },
     headerTintColor: 'white', 
     HeaderTitleStytle:{
@@ -204,22 +155,20 @@ const BarChartScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
+        name='ios-menu' size={30} backgroundColor="#900c3e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
   }}>
-      <Stack.Screen name="Bar Chart" >
-          {props => <Bar />}
-        </Stack.Screen>
-    </Stack.Navigator>
+    <Stack.Screen name="Magnitude" component={Magnitude} />
+  </Stack.Navigator>
 );
 
-const StackedBarScreen =({navigation}) =>(
+const ChangeScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
+      backgroundColor: '#900c3e',
+      height: 70,
     },
     headerTintColor: 'white', 
     HeaderTitleStytle:{
@@ -227,22 +176,20 @@ const StackedBarScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
+        name='ios-menu' size={30} backgroundColor="#900c3e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
   }}>
-      <Stack.Screen name="Stacked Bar Chart" >
-          {props => <StackedBar />}
-        </Stack.Screen>
-    </Stack.Navigator>
+    <Stack.Screen name="Change" component={Change} />
+  </Stack.Navigator>
 );
 
-const LineChartScreen =({navigation}) =>(
+const CorrelationScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
+      backgroundColor: '#900c3e',
+      height: 70,
     },
     headerTintColor: 'white', 
     HeaderTitleStytle:{
@@ -250,22 +197,20 @@ const LineChartScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
+        name='ios-menu' size={30} backgroundColor="#900c3e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
   }}>
-      <Stack.Screen name="Line Chart" >
-          {props => <LineChart />}
-        </Stack.Screen>
-    </Stack.Navigator>
+    <Stack.Screen name="Correlation" component={Correlation} />
+  </Stack.Navigator>
 );
 
-const PieChartScreen =({navigation}) =>(
+const PartScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
+      backgroundColor: '#900c3e',
+      height: 70,
     },
     headerTintColor: 'white', 
     HeaderTitleStytle:{
@@ -273,84 +218,13 @@ const PieChartScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
+        name='ios-menu' size={30} backgroundColor="#900c3e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
   }}>
-      <Stack.Screen name="Pie Chart" >
-          {props => <PieChart />}
-        </Stack.Screen>
-    </Stack.Navigator>
-);
-
-const ProgressScreen =({navigation}) =>(
-  <Stack.Navigator screenOptions={{
-    headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
-    },
-    headerTintColor: 'white', 
-    HeaderTitleStytle:{
-      fontWeight: 'bold',
-    },
-    headerLeft: ()=>(
-      <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
-        onPress={() => navigation.openDrawer()}>
-      </Icon.Button>
-    )
-  }}>
-      <Stack.Screen name="Progress Circle" >
-          {props => <Progress />}
-        </Stack.Screen>
-    </Stack.Navigator>
-);
-
-const XAxisScreen =({navigation}) =>(
-  <Stack.Navigator screenOptions={{
-    headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
-    },
-    headerTintColor: 'white', 
-    HeaderTitleStytle:{
-      fontWeight: 'bold',
-    },
-    headerLeft: ()=>(
-      <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
-        onPress={() => navigation.openDrawer()}>
-      </Icon.Button>
-    )
-  }}>
-      <Stack.Screen name="X-Axis" >
-          {props => <XAxis />}
-        </Stack.Screen>
-    </Stack.Navigator>
-);
-
-const YAxisScreen =({navigation}) =>(
-  <Stack.Navigator screenOptions={{
-    headerStyle:{
-      backgroundColor: '#ca787b',
-      height: 80,
-    },
-    headerTintColor: 'white', 
-    HeaderTitleStytle:{
-      fontWeight: 'bold',
-    },
-    headerLeft: ()=>(
-      <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#ca787b"
-        onPress={() => navigation.openDrawer()}>
-      </Icon.Button>
-    )
-  }}>
-      <Stack.Screen name="Y-Axis" >
-          {props => <YAxis />}
-        </Stack.Screen>
-    </Stack.Navigator>
+    <Stack.Screen name="Part" component={Part} />
+  </Stack.Navigator>
 );
 
 function App() {
@@ -358,19 +232,16 @@ function App() {
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name="HOME" component={HomeStackScreen} />
-        <Drawer.Screen name="Area Chart" component={AreaChartScreen}/>
-        <Drawer.Screen name="Stacked Area Chart" component={StackedAreaScreen}/>
-        <Drawer.Screen name="Bar Chart" component={BarChartScreen}/>
-        <Drawer.Screen name="Stacked Bar Chart" component={StackedBarScreen}/>
-        <Drawer.Screen name="Line Chart" component={LineChartScreen}/>
-        <Drawer.Screen name="Pie Chart" component={PieChartScreen}/>
-        <Drawer.Screen name="Progress Circle" component={ProgressScreen}/>
-        <Drawer.Screen name="Y-Axis" component={YAxisScreen}/>
-        <Drawer.Screen name="X-Axis" component={XAxisScreen}/>
+        <Drawer.Screen name="Deviation Charts" component={DeviationScreen} />
+        <Drawer.Screen name="Ranking Charts" component={RankingScreen} />
+        <Drawer.Screen name="Magnitude Charts" component={MagnitudeScreen} />
+        <Drawer.Screen name="Change Over Time Charts" component={ChangeScreen} />
+        <Drawer.Screen name="Co-relation Charts" component={CorrelationScreen} />
+        <Drawer.Screen name="Part-To-Whole Charts" component={PartScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
-}
+} 
 
 const styles = StyleSheet.create({
   main:{

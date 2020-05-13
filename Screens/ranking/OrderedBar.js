@@ -1,14 +1,13 @@
 import React from 'react'
 import { BarChart, Grid } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native'
-import Header from '../Component/Header';
 
 
 export default class BarChartEx extends React.PureComponent {
     render() {
         const fill = '#6497b1'
-        const data = [50, 10, 40, 95, -4, -24, null, 85, undefined, 0, 35, 53, -53, 24, 50, -20, -80]
-        
+        const data = [50, 10, 40, 65,35, 53, 24, 30,]
+        data.sort(function(a, b){return b-a});
         return (
             <View>
                 <Text>
@@ -17,9 +16,10 @@ export default class BarChartEx extends React.PureComponent {
 
                 <TouchableOpacity style={styles.chart} onPress={()=> Alert.alert('Bar Chart' )}>
                 <BarChart 
-                style={{ height: 300 }} 
+                style={{ height: 300 , width: 300}} 
                 data={data} 
                 svg={{ fill }} 
+                horizontal={true}
                 contentInset={{ top: 20, bottom: 20 }}>
                     <Grid />
                 </BarChart>
