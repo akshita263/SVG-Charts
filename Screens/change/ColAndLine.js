@@ -1,27 +1,32 @@
 import React from 'react'
-import { BarChart, Grid } from 'react-native-svg-charts'
+import { BarChart, Grid, LineChart } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native'
-import Header from '../Component/Header';
 
 
 export default class BarChartEx extends React.PureComponent {
     render() {
         const fill = '#6497b1'
-        const data = [50, 10, 40, 95, 0, 35, 53, 53, 24, 50, ]
-        
+        const data1 = [50, 10, 40, 95]
         return (
             <View>
                 <Text>
                     Standard Bar Charts display the ranks of values much easily when sorted into order.
                 </Text>
 
+                
+
                 <TouchableOpacity style={styles.chart} onPress={()=> Alert.alert('Bar Chart' )}>
                 <BarChart 
                 style={{ height: 300 }} 
-                data={data} 
-                horizontal = {true}
+                data={data1} 
                 svg={{ fill }} 
                 contentInset={{ top: 20, bottom: 20 }}>
+                    <LineChart
+                        style={{ height: 300 }}
+                        data={data1}
+                        svg={{ stroke: '#035b96', strokeWidth: 4 }}
+                        contentInset={{ top: 1, bottom: 1 }}>
+                    </LineChart>
                     <Grid />
                 </BarChart>
                 </TouchableOpacity>

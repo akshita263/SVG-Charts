@@ -1,6 +1,6 @@
 // In App.js in a new project
 import * as React from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity, ScrollView , BackHandler} from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableOpacity, ScrollView , BackHandler, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -11,32 +11,57 @@ import Correlation from './Screens/correltaion/Correlation';
 import Change from './Screens/change/Change';
 import Magnitude from './Screens/magnitude/Magnitude';
 import Part from './Screens/part/Part';
-import Home from './Screens/Home';
-
+import Bar from './Screens/Bar';
 
 function HomeScreen({navigation}) {
   return (
-    <ScrollView style={styles.main}>
+    <ScrollView style={styles.main} >
+        <View style={styles.textContainer}>
+          <Text style={styles.head}>DATA VISUALIZATION</Text>
+          <Text style={styles.intro}> 
+            Data visualization is both an art and a science. It is viewed as a branch of descriptive 
+            statistics by some, but also as a grounded theory development tool by others. Increased amounts
+            of data created by Internet activity and an expanding number of sensors in the environment are
+            referred to as "big data" or Internet of things.
+          </Text>
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.intro}> 
+            But there are so many waysto visualise data, and to choose the most appropriate way to 
+            represent data from a particular data set. Consider the following categories to decide
+            which data reelationship is most important in your story, Then look at the different types of 
+            Charts within the categories to form initial idea about what might be working best.
+            This is not meant to be exhaustive nor a wizard, but is a useful starting point for making 
+            informative and meaningful visualization,
+          </Text>
+        </View>
+        <View>
+          <Text style={[{textAlign: 'center'}, styles.head]}>CATEGORIES</Text>
+        </View>
+        <View style={styles.sub}> 
         <TouchableOpacity style={styles.container}
           onPress={() => navigation.navigate('Deviation')}>
               <View style={styles.listView}>
-                  <Text style={{ fontSize: 20}}>
+                  <Text style={styles.text}>
                     Deviation Charts
+                    
                   </Text>                       
               </View>
         </TouchableOpacity>
         <TouchableOpacity style={styles.container}
           onPress={() => navigation.navigate('Ranking')}>
               <View style={styles.listView}>
-                  <Text style={{ fontSize: 20}}>
+                  <Text style={styles.text}>
                     Ranking Charts 
                   </Text>                       
               </View>
         </TouchableOpacity>
+        </View>
+        <View style={styles.sub}>
         <TouchableOpacity style={styles.container}
           onPress={() => navigation.navigate('Magnitude')}>
               <View style={styles.listView}>
-                  <Text style={{ fontSize: 20}}>
+                  <Text style={styles.text}>
                     Magintude Charts  
                   </Text>                       
               </View>
@@ -44,15 +69,17 @@ function HomeScreen({navigation}) {
         <TouchableOpacity style={styles.container}
           onPress={() => navigation.navigate('Change')}>
               <View style={styles.listView}>
-                  <Text style={{ fontSize: 20}}>
+                  <Text style={styles.text}>
                     Change Over Time Charts  
                   </Text>                       
               </View>
         </TouchableOpacity>
+        </View>
+        <View style={styles.sub}>
         <TouchableOpacity style={styles.container}
           onPress={() => navigation.navigate('Correlation')}>
               <View style={styles.listView}>
-                  <Text style={{ fontSize: 20}}>
+                  <Text style={styles.text}>
                     Co-relation Charts  
                   </Text>                       
               </View>
@@ -60,11 +87,12 @@ function HomeScreen({navigation}) {
         <TouchableOpacity style={styles.container}
           onPress={() => navigation.navigate('Part')}>
               <View style={styles.listView}>
-                  <Text style={{ fontSize: 20}}>
-                    Part-To-Whole Charts  
+                  <Text style={styles.text}>
+                    Part To Whole Charts  
                   </Text>                       
               </View>
         </TouchableOpacity>
+        </View>
     </ScrollView>
   );
 }
@@ -76,7 +104,7 @@ const Stack = createStackNavigator();
 const HomeStackScreen =({navigation}) =>(
   <Stack.Navigator  screenOptions={{
     headerStyle:{
-      backgroundColor: '#900c3e',
+      backgroundColor: '#1b4e4e',
       height: 70,
     },
     headerTintColor: 'white', 
@@ -85,12 +113,12 @@ const HomeStackScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#900c3e" padding={ 20}
+        name='ios-menu' size={30} backgroundColor="#1b4e4e" padding={ 20}
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
   }}>
-      <Stack.Screen name="SVG CHARTS" component={HomeScreen} />
+      <Stack.Screen name="PLOTS AND CHARTS" component={HomeScreen} />
       <Stack.Screen name="Deviation" component={Deviation} />
       <Stack.Screen name="Ranking" component={Ranking} />
       <Stack.Screen name="Magnitude" component={Magnitude} />
@@ -104,7 +132,7 @@ const HomeStackScreen =({navigation}) =>(
 const DeviationScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#900c3e',
+      backgroundColor: '#1b4e4e',
       height: 70,
     },
     headerTintColor: 'white', 
@@ -113,7 +141,7 @@ const DeviationScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#900c3e"
+        name='ios-menu' size={30} backgroundColor="#1b4e4e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
@@ -125,7 +153,7 @@ const DeviationScreen =({navigation}) =>(
 const RankingScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#900c3e',
+      backgroundColor: '#1b4e4e',
       height: 70,
     },
     headerTintColor: 'white', 
@@ -134,7 +162,7 @@ const RankingScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#900c3e"
+        name='ios-menu' size={30} backgroundColor="#1b4e4e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
@@ -146,7 +174,7 @@ const RankingScreen =({navigation}) =>(
 const MagnitudeScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#900c3e',
+      backgroundColor: '#1b4e4e',
       height: 70,
     },
     headerTintColor: 'white', 
@@ -155,7 +183,7 @@ const MagnitudeScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#900c3e"
+        name='ios-menu' size={30} backgroundColor="#1b4e4e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
@@ -167,7 +195,7 @@ const MagnitudeScreen =({navigation}) =>(
 const ChangeScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#900c3e',
+      backgroundColor: '#1b4e4e',
       height: 70,
     },
     headerTintColor: 'white', 
@@ -176,7 +204,7 @@ const ChangeScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#900c3e"
+        name='ios-menu' size={30} backgroundColor="#1b4e4e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
@@ -188,7 +216,7 @@ const ChangeScreen =({navigation}) =>(
 const CorrelationScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#900c3e',
+      backgroundColor: '#1b4e4e',
       height: 70,
     },
     headerTintColor: 'white', 
@@ -197,7 +225,7 @@ const CorrelationScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#900c3e"
+        name='ios-menu' size={30} backgroundColor="#1b4e4e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
@@ -209,7 +237,7 @@ const CorrelationScreen =({navigation}) =>(
 const PartScreen =({navigation}) =>(
   <Stack.Navigator screenOptions={{
     headerStyle:{
-      backgroundColor: '#900c3e',
+      backgroundColor: '#1b4e4e',
       height: 70,
     },
     headerTintColor: 'white', 
@@ -218,7 +246,7 @@ const PartScreen =({navigation}) =>(
     },
     headerLeft: ()=>(
       <Icon.Button
-        name='ios-menu' size={30} backgroundColor="#900c3e"
+        name='ios-menu' size={30} backgroundColor="#1b4e4e"
         onPress={() => navigation.openDrawer()}>
       </Icon.Button>
     )
@@ -245,23 +273,58 @@ function App() {
 
 const styles = StyleSheet.create({
   main:{
-    backgroundColor: 'white'
+    backgroundColor:'#dbf3f896',
+    padding: 20,
+    paddingTop: 0,
+  },
+  sub:{
+    flexDirection: 'row',
+    flex: 1,
+    display : 'flex',
+    justifyContent: 'space-evenly',
+    paddingTop: 10
+  },
+  textContainer:{
+    borderBottomColor:'grey',
+    borderBottomWidth: 0.5
+  },
+  head:{
+    padding: 20,
+    paddingBottom: 0,
+    fontFamily: 'times new roman',
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#555'
+  },
+  intro:{
+    fontSize: 20,
+    fontFamily: 'times new roman',
+    textAlign: 'justify',
+    padding: 20,
+    paddingTop: 10,
   },
   container:{ 
     padding: 15,
-    backgroundColor: '#ffe9dc',
+    backgroundColor: '#40aaa8c9',
     borderBottomColor: 'white',
     borderBottomWidth: 0,
-    margin:7,
-    marginHorizontal: 7
+    margin:10,
+    marginHorizontal: 20,
+    borderRadius: 18,
+    width: '40%',
+    height: 200,
+    position: 'relative',
 },
 listView:{
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 45,
 },
-
+text:{ 
+  fontSize: 23, 
+  textAlign: 'center' , 
+  fontWeight: '900', 
+  fontFamily: 'times new roman',
+}
 });
 
 

@@ -11,46 +11,66 @@ import DivergingBar from './DivergingBar'
 function DeviationScreen({navigation}) {
     
     return (
-    
-        <ScrollView style={styles.main}>
-            <TouchableOpacity> 
-                <Text  style={styles.home}
-                onPress={() => navigation.dangerouslyGetParent().goBack()} >
-                    <Icon name="home" size={30} style={{alignSelf:'flex-end'}} />
-                    Return To Home
+        <View style= {styles.mainContainer}>
+            <ScrollView>
+            <View style={styles.textContainer}>
+                <Text style={[styles.intro, {paddingBottom: 10}]}> 
+                    Deviation Charts emphasise variations (+/-) from a fixed refereence point.
+                    Typically the reference point id zero but it can also be a target or a long term 
+                    average value. Can also be used to show sentiments (positive/ negtive /neutral).
                 </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.container}
-                onPress={() => navigation.navigate('Diverging Bar')}>
-                <View style={styles.listView}>
-                    <Text style={{ fontSize: 20}}>
-                        Diverging Bar Charts
-                    </Text>                       
+                <Text style={[styles.intro, {paddingTop: 0}]}> 
+                    EXAMPLE: Comparison of actual vs. budget expenses for several departments of a
+                     business for a given time period. A bar chart can show comparison of the actual 
+                     versus the reference amount.
+                </Text>
+            </View>
+            <View style={[styles.textContainer, {borderBottomWidth: 0}]}>
+                <Text style={[styles.head, {textAlign: 'center'}]}>DEVIATION CHARTS</Text>
+            </View>
+            <View style={styles.main}>
+                <View style={styles.sub}>
+                <TouchableOpacity style={styles.container}
+                    onPress={() => navigation.navigate('Diverging Bar')}>
+                    <View style={styles.listView}>
+                        <Text style={styles.containerText}>
+                            Diverging Bar Chart
+                        </Text>                       
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.container}
+                    onPress={() => navigation.navigate('Diverging Stacked')}>
+                    <View style={styles.listView}>
+                        <Text style={styles.containerText}>
+                            Diverging Stacked Bar Chart
+                        </Text>                       
+                    </View>
+                </TouchableOpacity>
                 </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.container}
-                onPress={() => navigation.navigate('Diverging Stacked')}>
-                <View style={styles.listView}>
-                    <Text style={{ fontSize: 20}}>
-                        Diverging Stacked Bar Charts
-                    </Text>                       
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.container}
-                onPress={() => navigation.navigate('Spine')}>
-                <View style={styles.listView}>
-                    <Text style={{ fontSize: 20}}>
-                        Spine Charts
-                    </Text>                       
-                </View>
-            </TouchableOpacity>
-        </ScrollView>
+                <TouchableOpacity style={styles.container}
+                    onPress={() => navigation.navigate('Spine')}>
+                    <View style={styles.listView}>
+                        <Text style={styles.containerText}>
+                            Spine Chart
+                        </Text>                       
+                    </View>
+                </TouchableOpacity>
+            </View>
+            </ScrollView>
+            <View>
+                <TouchableOpacity style={styles.homeBtn}
+                    onPress={() => navigation.dangerouslyGetParent().goBack()} > 
+                    <Icon name="home" size={30} style={styles.homeIcon} />
+                    <Text  style={styles.homeText}>
+                        Return To Home
+                    </Text>
+                </TouchableOpacity>
+            </View>
+        </View>
     );
 }
 
-
 const Stack = createStackNavigator();
-
 
 function Deviation() {
   return (
@@ -68,32 +88,79 @@ function Deviation() {
 } 
 
 const styles = StyleSheet.create({
-  main:{
-    backgroundColor: 'white'
+  mainContainer:{
+    flex: 1,
+    backgroundColor: '#dbf3f896'
   },
-  home:{
-    backgroundColor: '#900c3e', 
-    color: 'white', 
-    alignSelf: 'flex-end',
-    paddingLeft: 20,
-    width:'100%',
-    fontSize : 20,
+  textContainer:{
+    borderBottomColor:'grey',
+    borderBottomWidth: 0.5
+  },
+  head:{
+    padding: 20,
+    paddingBottom: 0,
+    fontFamily: 'times new roman',
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#555'
+  },
+  intro:{
+    fontSize: 20,
+    fontFamily: 'times new roman',
+    textAlign: 'justify',
+    padding: 20,
+    paddingTop: 10,
+  },
+  sub:{
+    flexDirection: 'row',
+    flex: 1,
+    display : 'flex',
+    justifyContent: 'space-evenly',
+    paddingTop: 10
   },
   container:{ 
     padding: 15,
-    backgroundColor: '#ffe9dc',
+    backgroundColor: '#40aaa8c9',
     borderBottomColor: 'white',
     borderBottomWidth: 0,
-    margin:7,
-    marginHorizontal: 7
+    margin:10,
+    marginHorizontal: 20,
+    borderRadius: 18,
+    width: '40%',
+    height: 200,
+    position: 'relative',
 },
 listView:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 45,
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
 },
-
+containerText:{
+    fontSize: 20, 
+    textAlign: 'center' , 
+    fontWeight: '900', 
+    fontFamily: 'times new roman',
+},
+homeBtn:{
+    backgroundColor: '#1b4e4e', 
+  },
+  homeIcon:{
+    alignSelf:'flex-start', 
+    position: 'absolute', 
+    color: 'white',
+    padding: 7,
+    paddingLeft: 20
+  },
+  homeText:{
+    alignItems: 'center',
+    paddingVertical: 10,
+    color: 'white', 
+    alignSelf: 'flex-end',
+    paddingLeft: 60,
+    paddingTop: 10,
+    width:'100%',
+    height: 50,
+    fontSize : 20,
+  },
 });
 
 

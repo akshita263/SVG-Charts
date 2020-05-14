@@ -6,37 +6,79 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ScatterPlot from './ScatterPlot';
 import ConScatterPlot from './ConScatterPlot';
-
+import Bubble from './Bubble';
+import ColAndLine from './ColAndLine';
 
 function CorrelationScreen({navigation}) {
     
     return (
-    
-        <ScrollView style={styles.main}>
-            <TouchableOpacity> 
-                <Text  style={styles.home}
-                onPress={() => navigation.dangerouslyGetParent().goBack()} >
-                    <Icon name="home" size={30} style={{alignSelf:'flex-end'}} />
-                    Return To Home
-                </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.container}
-                onPress={() => navigation.navigate('Scatter')}>
-                <View style={styles.listView}>
-                    <Text style={{ fontSize: 20}}>
-                        Scatter Plot
-                    </Text>                       
+        <View style= {styles.mainContainer}>
+            <ScrollView>
+                <View style={styles.textContainer}>
+                    <Text style={[styles.intro, {paddingBottom: 10}]}> 
+                        Co-relation Charts show relationship between two or more variables. Be mindful 
+                        that, unless you tell them otherwise, many readers will assume the relationships
+                        you show them to be casual (i.e., one causes the other).
+
+                    </Text>
+                    <Text style={[styles.intro, {paddingTop: 0}]}> 
+                        EXAMPLE: plotting unemployment (X) and inflation (Y) for a sample of months. 
+                        A scatter plot is typically used for this message. Other related variables like
+                        income, life expectancy.
+                    </Text>
                 </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.container}
-                onPress={() => navigation.navigate('Connected Scatter')}>
-                <View style={styles.listView}>
-                    <Text style={{ fontSize: 20}}>
-                        Connected Scatter Plot
-                    </Text>                       
+                <View style={[styles.textContainer, {borderBottomWidth: 0}]}>
+                    <Text style={[styles.head, {textAlign: 'center'}]}>CO-RELATION CHARTS</Text>
                 </View>
-            </TouchableOpacity>
-        </ScrollView>
+                <View style={styles.main}>
+                    <View style={styles.sub}>
+                        <TouchableOpacity style={styles.container}
+                        onPress={() => navigation.navigate('Scatter')}>
+                        <View style={styles.listView}>
+                            <Text style={styles.containerText}>
+                                Scatter Plot
+                            </Text>                       
+                        </View>
+                    </TouchableOpacity>
+                        <TouchableOpacity style={styles.container}
+                        onPress={() => navigation.navigate('Connected Scatter')}>
+                        <View style={styles.listView}>
+                            <Text style={styles.containerText}>
+                                Connected Scatter Plot
+                            </Text>                       
+                        </View>
+                    </TouchableOpacity>
+                    </View>
+                    <View style={styles.sub}>
+                        <TouchableOpacity style={styles.container}
+                        onPress={() => navigation.navigate('Bubble')}>
+                        <View style={styles.listView}>
+                            <Text style={styles.containerText}>
+                                Bubble Plot
+                            </Text>                       
+                        </View>
+                    </TouchableOpacity>
+                        <TouchableOpacity style={styles.container}
+                    onPress={() => navigation.navigate('ColAndLine')}>
+                    <View style={styles.listView}>
+                        <Text style={styles.containerText}>
+                            Column and Line Plot
+                        </Text>                       
+                    </View>
+                </TouchableOpacity>
+                    </View>
+                </View>
+            </ScrollView>
+            <View>
+                <TouchableOpacity style={styles.homeBtn}
+                    onPress={() => navigation.dangerouslyGetParent().goBack()} > 
+                        <Icon name="home" size={30} style={styles.homeIcon} />
+                        <Text  style={styles.homeText}>
+                            Return To Home
+                        </Text>
+                </TouchableOpacity>
+            </View>
+        </View>
     );
 }
 
@@ -52,7 +94,9 @@ function Correlation() {
   }}>
       <Stack.Screen name="Correlation" component={CorrelationScreen} />
       <Stack.Screen name="Scatter" component={ScatterPlot} />
+      <Stack.Screen name="Bubble" component={Bubble} />
       <Stack.Screen name="Connected Scatter" component={ConScatterPlot} />
+      <Stack.Screen name="ColAndLine" component={ColAndLine} />
     </Stack.Navigator> 
     
     </NavigationContainer>
@@ -60,33 +104,81 @@ function Correlation() {
 } 
 
 const styles = StyleSheet.create({
-  main:{
-    backgroundColor: 'white'
+    mainContainer:{
+      flex: 1,
+      backgroundColor: '#dbf3f896'
+    },
+    textContainer:{
+      borderBottomColor:'grey',
+      borderBottomWidth: 0.5
+    },
+    head:{
+      padding: 20,
+      paddingBottom: 0,
+      fontFamily: 'times new roman',
+      fontSize: 30,
+      fontWeight: 'bold',
+      color: '#555'
+    },
+    intro:{
+      fontSize: 20,
+      fontFamily: 'times new roman',
+      textAlign: 'justify',
+      padding: 20,
+      paddingTop: 10,
+    },
+    sub:{
+      flexDirection: 'row',
+      flex: 1,
+      display : 'flex',
+      justifyContent: 'space-evenly',
+      paddingTop: 10
+    },
+    container:{ 
+      padding: 15,
+      backgroundColor: '#40aaa8c9',
+      borderBottomColor: 'white',
+      borderBottomWidth: 0,
+      margin:10,
+      marginHorizontal: 20,
+      borderRadius: 18,
+      width: '40%',
+      height: 200,
+      position: 'relative',
   },
-  home:{
-    backgroundColor: '#900c3e', 
-    color: 'white', 
-    alignSelf: 'flex-end',
-    paddingLeft: 20,
-    width:'100%',
-    fontSize : 20,
+  listView:{
+      flexDirection: 'column',
+      justifyContent: 'space-evenly',
   },
-  container:{ 
-    padding: 15,
-    backgroundColor: '#ffe9dc',
-    borderBottomColor: 'white',
-    borderBottomWidth: 0,
-    margin:7,
-    marginHorizontal: 7
-},
-listView:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 45,
-},
-
-});
+  containerText:{
+      fontSize: 20, 
+      textAlign: 'center' , 
+      fontWeight: '900', 
+      fontFamily: 'times new roman',
+  },
+  homeBtn:{
+      backgroundColor: '#1b4e4e', 
+    },
+    homeIcon:{
+      alignSelf:'flex-start', 
+      position: 'absolute', 
+      color: 'white',
+      padding: 7,
+      paddingLeft: 20
+    },
+    homeText:{
+      alignItems: 'center',
+      paddingVertical: 10,
+      color: 'white', 
+      alignSelf: 'flex-end',
+      paddingLeft: 60,
+      paddingTop: 10,
+      width:'100%',
+      height: 50,
+      fontSize : 20,
+    },
+  });
+  
 
 
 export default Correlation;

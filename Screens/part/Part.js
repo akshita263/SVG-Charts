@@ -12,40 +12,62 @@ import StackedCol from './StackedCol';
 function PartScreen({navigation}) {
     
     return (
-    
-        <ScrollView style={styles.main}>
-            <TouchableOpacity> 
-                <Text  style={styles.home}
-                onPress={() => navigation.dangerouslyGetParent().goBack()} >
-                    <Icon name="home" size={30} style={{alignSelf:'flex-end'}} />
-                    Return To Home
-                </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.container}
-                onPress={() => navigation.navigate('Pie')}>
-                <View style={styles.listView}>
-                    <Text style={{ fontSize: 20}}>
-                        Pie Chart
-                    </Text>                       
+        <View style= {styles.mainContainer}>
+            <ScrollView>
+                <View style={styles.textContainer}>
+                    <Text style={[styles.intro, {paddingBottom: 10}]}> 
+                        Part to whole Charts shows how a particular entity can be broken down into
+                        component elements. If the readers interest is solely in the size of the 
+                        component consider a Magnitude Type Chart instead
+                    </Text>
+                    <Text style={[styles.intro, {paddingTop: 0}]}> 
+                        EXAMPLE: subdivisions are measured as a ratio to the whole (i.e., a percentage out of 100%). 
+                        A pie chart or bar chart can show the comparison of ratios, 
+                        such as the market share represented by competitors in a market.
+                    </Text>
                 </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.container}
-                onPress={() => navigation.navigate('Donut')}>
-                <View style={styles.listView}>
-                    <Text style={{ fontSize: 20}}>
-                        Donut Chart
-                    </Text>                       
+                <View style={[styles.textContainer, {borderBottomWidth: 0}]}>
+                    <Text style={[styles.head, {textAlign: 'center'}]}>PART tO WHOLE CHARTS</Text>
                 </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.container}
-                onPress={() => navigation.navigate('Stacked Column')}>
-                <View style={styles.listView}>
-                    <Text style={{ fontSize: 20}}>
-                        Stacked Column Charts
-                    </Text>                       
+                <View style={styles.main}>
+                    <View style={styles.sub}>
+                        <TouchableOpacity style={styles.container}
+                        onPress={() => navigation.navigate('Pie')}>
+                        <View style={styles.listView}>
+                            <Text style={styles.containerText}>
+                                Pie Chart
+                            </Text>                       
+                        </View>
+                    </TouchableOpacity>
+                        <TouchableOpacity style={styles.container}
+                        onPress={() => navigation.navigate('Donut')}>
+                        <View style={styles.listView}>
+                            <Text style={styles.containerText}>
+                                Donut Chart
+                            </Text>                       
+                        </View>
+                    </TouchableOpacity>
+                    </View>
+                        <TouchableOpacity style={styles.container}
+                    onPress={() => navigation.navigate('Stacked Column')}>
+                    <View style={styles.listView}>
+                        <Text style={styles.containerText}>
+                            Stacked Column Charts
+                        </Text>                       
+                    </View>
+                </TouchableOpacity>
                 </View>
-            </TouchableOpacity>
-        </ScrollView>
+            </ScrollView>
+            <View>
+        <TouchableOpacity style={styles.homeBtn}
+            onPress={() => navigation.dangerouslyGetParent().goBack()} > 
+            <Icon name="home" size={30} style={styles.homeIcon} />
+            <Text  style={styles.homeText}>
+                Return To Home
+            </Text>
+        </TouchableOpacity>
+    </View>
+        </View>
     );
 }
 
@@ -70,33 +92,81 @@ function Part() {
 } 
 
 const styles = StyleSheet.create({
-  main:{
-    backgroundColor: 'white'
+    mainContainer:{
+      flex: 1,
+      backgroundColor: '#dbf3f896'
+    },
+    textContainer:{
+      borderBottomColor:'grey',
+      borderBottomWidth: 0.5
+    },
+    head:{
+      padding: 20,
+      paddingBottom: 0,
+      fontFamily: 'times new roman',
+      fontSize: 30,
+      fontWeight: 'bold',
+      color: '#555'
+    },
+    intro:{
+      fontSize: 20,
+      fontFamily: 'times new roman',
+      textAlign: 'justify',
+      padding: 20,
+      paddingTop: 10,
+    },
+    sub:{
+      flexDirection: 'row',
+      flex: 1,
+      display : 'flex',
+      justifyContent: 'space-evenly',
+      paddingTop: 10
+    },
+    container:{ 
+      padding: 15,
+      backgroundColor: '#40aaa8c9',
+      borderBottomColor: 'white',
+      borderBottomWidth: 0,
+      margin:10,
+      marginHorizontal: 20,
+      borderRadius: 18,
+      width: '40%',
+      height: 200,
+      position: 'relative',
   },
-  home:{
-    backgroundColor: '#900c3e', 
-    color: 'white', 
-    alignSelf: 'flex-end',
-    paddingLeft: 20,
-    width:'100%',
-    fontSize : 20,
+  listView:{
+      flexDirection: 'column',
+      justifyContent: 'space-evenly',
   },
-  container:{ 
-    padding: 15,
-    backgroundColor: '#ffe9dc',
-    borderBottomColor: 'white',
-    borderBottomWidth: 0,
-    margin:7,
-    marginHorizontal: 7
-},
-listView:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 45,
-},
-
-});
-
+  containerText:{
+      fontSize: 20, 
+      textAlign: 'center' , 
+      fontWeight: '900', 
+      fontFamily: 'times new roman',
+  },
+  homeBtn:{
+      backgroundColor: '#1b4e4e', 
+    },
+    homeIcon:{
+      alignSelf:'flex-start', 
+      position: 'absolute', 
+      color: 'white',
+      padding: 7,
+      paddingLeft: 20
+    },
+    homeText:{
+      alignItems: 'center',
+      paddingVertical: 10,
+      color: 'white', 
+      alignSelf: 'flex-end',
+      paddingLeft: 60,
+      paddingTop: 10,
+      width:'100%',
+      height: 50,
+      fontSize : 20,
+    },
+  });
+  
+  
 
 export default Part;

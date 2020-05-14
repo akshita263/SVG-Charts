@@ -1,24 +1,62 @@
 import React from 'react'
-import { AreaChart, Grid } from 'react-native-svg-charts'
+import { StackedAreaChart } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 
-export default class AreaChartEx extends React.PureComponent {
+export default class StackedAreaEx extends React.PureComponent {
     render() {
-        const data = [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80]
- 
+        const data = [
+            {
+                month: new Date(2015, 0, 1),
+                apples: 3840,
+                bananas: 1920,
+                cherries: 960,
+                dates: 400,
+            },
+            {
+                month: new Date(2015, 1, 1),
+                apples: 1600,
+                bananas: 1440,
+                cherries: 960,
+                dates: 400,
+            },
+            {
+                month: new Date(2015, 2, 1),
+                apples: 640,
+                bananas: 960,
+                cherries: 3640,
+                dates: 400,
+            },
+            {
+                month: new Date(2015, 3, 1),
+                apples: 3320,
+                bananas: 480,
+                cherries: 640,
+                dates: 400,
+            },
+        ]
+        const colors = ['#03396c', '#005b96', '#6497b1', '#b3cde0']
+        const keys = ['apples', 'bananas', 'cherries', 'dates']
+        const svgs = [
+            { onPress: () => console.log('apples') },
+            { onPress: () => console.log('bananas') },
+            { onPress: () => console.log('cherries') },
+            { onPress: () => console.log('dates') },
+        ]
+
         return (
             <View>
             <TouchableOpacity style={styles.chart}>
-            <AreaChart 
-                style={{ height: 300 }}
+            <StackedAreaChart
+                style={{ height: 250 }}
                 data={data}
-                contentInset={{ top: 30, bottom: 30 }}
+                keys={keys}
+                colors={colors}
                 curve={shape.curveNatural}
-                svg={{ fill: '#035b9661', strokeWidth: 1 , stroke: '#035b96'}} >
-                <Grid />
-            </AreaChart>
+                showGrid={false}
+                svgs={svgs}
+            />
             </TouchableOpacity>
             </View>
         )
@@ -29,13 +67,12 @@ const styles = StyleSheet.create({
     chart:{
         margin: 20,
         borderWidth: 5,
-        padding: 10,
+        padding: 8,
     },
     title: {
         fontSize: 30,
         padding:20,
         alignSelf: 'center',
-        fontWeight: 'bold',
     }
 });
 
