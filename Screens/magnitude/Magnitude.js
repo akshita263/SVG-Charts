@@ -8,6 +8,7 @@ import Bar from './Bar';
 import Column from './Column';
 import PairedBar from './PairedBar';
 import PairedCol from './PairedCol';
+import Proportional from './Proportional';
 
 function MagnitudeScreen({navigation}) {
     
@@ -59,14 +60,22 @@ function MagnitudeScreen({navigation}) {
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.container}
-                    onPress={() => navigation.navigate('Paired Column')}>
-                    <View style={styles.listView}>
-                        <Text style={styles.containerText}>
-                            Paired Column Charts
-                        </Text>                       
-                    </View>
-                </TouchableOpacity>
+                        onPress={() => navigation.navigate('Paired Column')}>
+                        <View style={styles.listView}>
+                            <Text style={styles.containerText}>
+                                Paired Column Charts
+                            </Text>                       
+                        </View>
+                    </TouchableOpacity>
                 </View>
+                    <TouchableOpacity style={styles.container}
+                        onPress={() => navigation.navigate('Proportional')}>
+                        <View style={styles.listView}>
+                            <Text style={styles.containerText}>
+                                Proportional Chart
+                            </Text>                       
+                        </View>
+                    </TouchableOpacity>       
             </View>
             </ScrollView>
             <View>
@@ -97,6 +106,7 @@ function Magnitude() {
       <Stack.Screen name="Column" component={Column} />
       <Stack.Screen name="Paired Bar" component={PairedBar} />
       <Stack.Screen name="Paired Column" component={PairedCol} />
+      <Stack.Screen name="Proportional" component={Proportional} />
     </Stack.Navigator> 
     
     </NavigationContainer>

@@ -58,13 +58,13 @@ function RankingScreen({navigation}) {
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.container}
-                    onPress={() => navigation.navigate('Proportional')}>
-                    <View style={styles.listView}>
-                        <Text style={styles.containerText}>
-                            Ordered Proportional Chart
-                        </Text>                       
-                    </View>
-                </TouchableOpacity>
+                            onPress={() => navigation.navigate('Proportional')}>
+                            <View style={styles.listView}>
+                                <Text style={styles.containerText}>
+                                    Ordered Proportional Chart
+                                </Text>                       
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </ScrollView>

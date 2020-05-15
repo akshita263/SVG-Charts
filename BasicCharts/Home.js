@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Deviation from './deviation/Deviation'
+import Deviation from '../Screens/deviation/Deviation'
 
 
 function HomeScreen({ navigation }) {

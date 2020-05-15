@@ -1,43 +1,38 @@
 import React from 'react'
-import { BarChart, Grid, LineChart } from 'react-native-svg-charts'
+import { AreaChart, Grid } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity, Alert, ScrollView } from 'react-native'
 
 
-export default class BarChartEx extends React.PureComponent {
+export default class AreaChartEx extends React.PureComponent {
     render() {
-        const fill = 'rgb(255, 130 , 0 )'
-        const data1 = [50, 10, 40, 95]
-        const data2= [30, 40, 70, 90]
+        const data = [30, 40, 10, 70, 80, 90, 40, 150, 10, 60, 20, 50, 10, -30, -10, -70, -40, -100, 
+            -80, -16, -70, -30,  -100, -40, 40, 60, 70, 90]
+ 
         return (
-                <ScrollView style={styles.main}>
+            <ScrollView style={styles.main}>
                 <View style={styles.textContainer}>
-                    <Text style={styles.head}>COLUMN AND LINE CHART</Text>
+                    <Text style={styles.head}>SURPLUS / DEFICIT CHART</Text>
                     <Text style={styles.intro}> 
-                        A good way of showing relationship over time between- an amount (column)
-                        and rate (line).
+                        The shaded area of these charts allows a balance to be shown- either against a 
+                        baseline or between two series.
                     </Text>
                 </View>
 
-                <TouchableOpacity style={styles.chart} onPress={()=> Alert.alert('Bar Chart' )}>
-                    <BarChart 
-                        style={{ height: 300 }} 
-                        data={data1} 
-                        svg={{ fill }} 
-                        contentInset={{ top: 20, bottom: 20 }}>
-                            <LineChart
-                                style={{ height: 300 }}
-                                data={data2}
-                                svg={{ stroke: 'black', strokeWidth: 4 }}
-                                contentInset={{ top: 1, bottom: 1 }}>
-                            </LineChart>
-                            <Grid />
-                    </BarChart>
+                <TouchableOpacity style={styles.chart} 
+                    onPress={()=> Alert.alert('The data used for this Chart:', '50, -60, 70, -30, 40, -70' )}>
+                    <AreaChart 
+                    style={{ height: 300 }}
+                    data={data}
+                    contentInset={{ top: 30, bottom: 30 }}
+                    svg={{ fill: 'black', strokeWidth: 1 , stroke: '#035b96'}} >
+                    <Grid />
+                </AreaChart>
                 </TouchableOpacity>
             
                 <View style={styles.textContainer}>
                     <Text style={styles.intro}> 
-                        This chart is build using a basic Bar Chart and line Chart avaialable in the 
-                        react-native-svg-charts, and nesting the two in one another.
+                        This chart is build using a basic Area Chart avaialable in the 
+                        react-native-svg-charts.
                     </Text>                        
                 </View>
                 <View style={styles.textContainer}>
@@ -48,8 +43,8 @@ export default class BarChartEx extends React.PureComponent {
                     </Text>
                     <Text style={styles.subHead}>svg:</Text>
                     <Text style={styles.list}> 
-                         It accepts various children props but here, 
-                        an object that determines the color of the chart is passed.
+                        It accepts various children props but here, 
+                        an object that determines the color of the chart is passed. and the width of the storke.
                     </Text>
                     <Text style={styles.subHead}>content inset: </Text>
                     <Text style={styles.list}> 
@@ -58,10 +53,10 @@ export default class BarChartEx extends React.PureComponent {
                     </Text>
                 </View>
             </ScrollView>
+
         )
     }
 }
-
 
 const styles = StyleSheet.create({
     main:{
@@ -117,4 +112,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     }
 });
+
 

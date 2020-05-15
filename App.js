@@ -11,7 +11,6 @@ import Correlation from './Screens/correltaion/Correlation';
 import Change from './Screens/change/Change';
 import Magnitude from './Screens/magnitude/Magnitude';
 import Part from './Screens/part/Part';
-import Bar from './Screens/Bar';
 
 function HomeScreen({navigation}) {
   return (

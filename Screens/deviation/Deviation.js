@@ -5,8 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DivergingBar from './DivergingBar'
-
-
+import Surplus from './Surplus'
+import Spine from './Spine'
+import DivergingStacked from './DivergingStacked'
 
 function DeviationScreen({navigation}) {
     
@@ -47,6 +48,7 @@ function DeviationScreen({navigation}) {
                     </View>
                 </TouchableOpacity>
                 </View>
+                <View style={styles.sub}>
                 <TouchableOpacity style={styles.container}
                     onPress={() => navigation.navigate('Spine')}>
                     <View style={styles.listView}>
@@ -55,6 +57,15 @@ function DeviationScreen({navigation}) {
                         </Text>                       
                     </View>
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.container}
+                    onPress={() => navigation.navigate('Surplus')}>
+                    <View style={styles.listView}>
+                        <Text style={styles.containerText}>
+                            Surplus / Deficit Chart
+                        </Text>                       
+                    </View>
+                </TouchableOpacity>
+                </View>
             </View>
             </ScrollView>
             <View>
@@ -79,8 +90,10 @@ function Deviation() {
     headerShown: false,
   }}>
       <Stack.Screen name="DEVIATION" component={DeviationScreen} />
-      <Stack.Screen name="Diverging Bar" component={DivergingBar} >
-      </Stack.Screen>
+      <Stack.Screen name="Diverging Bar" component={DivergingBar} />
+      <Stack.Screen name="Diverging Stacked" component={DivergingStacked} />
+      <Stack.Screen name="Spine" component={Spine} />
+      <Stack.Screen name="Surplus" component={Surplus} />
     </Stack.Navigator> 
     
     </NavigationContainer>

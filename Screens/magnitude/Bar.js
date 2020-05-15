@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, Alert, ScrollView } from 'react-native'
 import { BarChart, Grid } from 'react-native-svg-charts'
+import {Text as TextSvg} from 'react-native-svg'
 
 class BarChartHorizontalWithLabels extends React.PureComponent {
 
@@ -11,8 +12,7 @@ class BarChartHorizontalWithLabels extends React.PureComponent {
         const CUT_OFF = 50
         const Labels = ({  x, y, bandwidth, data }) => (
             data.map((value, index) => (
-                <Text
-                    style={styles.text}
+                <TextSvg
                     key={ index }
                     x={ value > CUT_OFF ? x(0) + 10 : x(value) + 10 }
                     y={ y(index) + (bandwidth / 2) }
@@ -21,17 +21,17 @@ class BarChartHorizontalWithLabels extends React.PureComponent {
                     alignmentBaseline={ 'middle' }
                 >
                     {value}
-                </Text>
+                </TextSvg>
             ))
         )
 
         return (
             <ScrollView style={styles.main}>
                 <View style={styles.textContainer}>
-                    <Text style={styles.head}>DIVERGING BAR</Text>
+                    <Text style={styles.head}>BAR CHART</Text>
                     <Text style={styles.intro}> 
-                        It is a simple standard Bar Chart that can handle both positive nad negative magnitude
-                         values.
+                        The standard way to compare the size of things. Must always start at 0 on the axis.
+                        Good when data is not time series and labels have ling category names.
                     </Text>
                 </View>
 
@@ -40,8 +40,8 @@ class BarChartHorizontalWithLabels extends React.PureComponent {
                         style={{ flex: 1, marginLeft: 8, height: 300 }}
                         data={data}
                         horizontal={true}
-                        svg={{ fill: 'rgba(134, 65, 244, 0.8)' }}
-                        contentInset={{ top: 10, bottom: 10, left:25, right:10 }}
+                        svg={{ fill: 'rgba(170, 0, 50, 0.6)' }}
+                        contentInset={{ top: 10, bottom: 10, left:10, right:10 }}
                         spacing={0.2}
                         gridMin={0}
                     >
@@ -53,7 +53,11 @@ class BarChartHorizontalWithLabels extends React.PureComponent {
                 <View style={styles.textContainer}>
                     <Text style={styles.intro}> 
                         This chart is build using a basic Bar Chart avaialable in the 
-                        react-native-svg-charts, as they accept both positive and negative values.
+                        react-native-svg-charts. A Text component inherited from recat-native-svg is 
+                        used to get label sthat display the value of each bar.
+                        The color of label is determined by a seperate variable: CUT_OFF.
+                        Values less than that are displayed by black color an dmore than that by white color
+                        to create distinction.
                     </Text>                        
                 </View>
                 <View style={styles.textContainer}>
@@ -65,11 +69,20 @@ class BarChartHorizontalWithLabels extends React.PureComponent {
                     <Text style={styles.subHead}>svg:</Text>
                     <Text style={styles.list}> 
                          It accepts various children props but here, 
-                        an object that determines the color of the chart is passed.
+                        an object fill that accepts the color of the bar is passed.
                     </Text>
-                    <Text style={styles.subHead}>horizontal: </Text>
+                    <Text style={styles.subHead}horizontal >horizontal: </Text>
                     <Text style={styles.list}> 
-                        Horizontal is set to true ,since the deviation seems more clear in vertical bars.
+                        Horizontal is set to true because
+                        Bar charts are horizontal and column charts are vertical.
+                    </Text>
+                    <Text style={styles.subHead}>spacing: </Text>
+                    <Text style={styles.list}> 
+                        This variable determines the spacing between each bar. Here it is set to 0.2
+                    </Text>
+                    <Text style={styles.subHead}>gridMin: </Text>
+                    <Text style={styles.list}> 
+                        It is here set to 0 to make sure that the charts starts at 0.
                     </Text>
                     <Text style={styles.subHead}>content inset: </Text>
                     <Text style={styles.list}> 
@@ -90,11 +103,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#dbf3f896'
 
     },
-    text:{
-        padding: 21,
-        paddingLeft: 0,
-        fontWeight: 'bold'
-    },
+
     textContainer:{
         borderBottomColor:'grey',
         borderBottomWidth: 0.5,

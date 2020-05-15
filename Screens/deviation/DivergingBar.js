@@ -58,6 +58,7 @@ export default class DivergingBar extends React.PureComponent {
                     </Text>
                 </View>
             </ScrollView>
+
         )
     }
 }

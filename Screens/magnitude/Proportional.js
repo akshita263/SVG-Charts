@@ -1,43 +1,63 @@
 import React from 'react'
-import { BarChart, Grid, LineChart } from 'react-native-svg-charts'
+import { AreaChart, Grid } from 'react-native-svg-charts'
+import { Circle, Path } from 'react-native-svg'
 import { StyleSheet, View, Text, TouchableOpacity, Alert, ScrollView } from 'react-native'
 
+class Proportional extends React.PureComponent {
 
-export default class BarChartEx extends React.PureComponent {
     render() {
-        const fill = 'rgb(255, 130 , 0 )'
-        const data1 = [50, 10, 40, 95]
-        const data2= [30, 40, 70, 90]
+
+        const data = [ 4, 7,  5, 6, 9 ]
+        
+        const Decorator = ({ x, y, data }) => {
+            return data.map((value, index) => (
+                <Circle
+                    key={ index }
+                    cx={ x(index) }
+                    cy={ y(value) }
+                    r={ 11 * (value) }
+                    stroke={ 'black' }
+                    fill={ 'rgba(200, 90, 0, 0.8)' }
+                />
+            ))
+        }
+
+        const Line = ({ line }) => (
+            <Path
+                d={ line }
+                stroke={ 'rgba(134, 65, 244, 0)' }
+                fill={ 'none' }
+            />
+        )
+
         return (
-                <ScrollView style={styles.main}>
+            <ScrollView style={styles.main}>
                 <View style={styles.textContainer}>
-                    <Text style={styles.head}>COLUMN AND LINE CHART</Text>
+                    <Text style={styles.head}>ORDERED PROPRTIONAL CHART</Text>
                     <Text style={styles.intro}> 
-                        A good way of showing relationship over time between- an amount (column)
-                        and rate (line).
+                        Use when there are big variations between values and/or seeing fine differences 
+                        between data is not so important.
                     </Text>
                 </View>
 
-                <TouchableOpacity style={styles.chart} onPress={()=> Alert.alert('Bar Chart' )}>
-                    <BarChart 
-                        style={{ height: 300 }} 
-                        data={data1} 
-                        svg={{ fill }} 
-                        contentInset={{ top: 20, bottom: 20 }}>
-                            <LineChart
-                                style={{ height: 300 }}
-                                data={data2}
-                                svg={{ stroke: 'black', strokeWidth: 4 }}
-                                contentInset={{ top: 1, bottom: 1 }}>
-                            </LineChart>
-                            <Grid />
-                    </BarChart>
+                <TouchableOpacity style={styles.chart}>
+                    <AreaChart
+                        style={{ height: 300  }}
+                        data={ data }
+                        svg={{ fill: 'rgba(134, 65, 244, 0)' }}
+                        contentInset={{ top: 20, bottom: 30 }}
+                    >
+                        <Grid/>
+                        <Line/>
+                        <Decorator/>
+                    </AreaChart>
                 </TouchableOpacity>
             
                 <View style={styles.textContainer}>
                     <Text style={styles.intro}> 
-                        This chart is build using a basic Bar Chart and line Chart avaialable in the 
-                        react-native-svg-charts, and nesting the two in one another.
+                        This chart is build using a basic Bar Chart avaialable in the 
+                        react-native-svg-charts. Just by applying a simple sorting algorithm
+                        to the data set, that sorts the data into descending order.
                     </Text>                        
                 </View>
                 <View style={styles.textContainer}>
@@ -60,13 +80,14 @@ export default class BarChartEx extends React.PureComponent {
             </ScrollView>
         )
     }
+
 }
 
+export default Proportional
 
 const styles = StyleSheet.create({
     main:{
-        backgroundColor: '#dbf3f896'
-
+        backgroundColor: '#dbf3f896',
     },
     textContainer:{
         borderBottomColor:'grey',
@@ -117,4 +138,3 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     }
 });
-
