@@ -89,6 +89,7 @@ function Ranking() {
   }}>
       <Stack.Screen name="RANKING" component={RankingScreen} />
       <Stack.Screen name="Ordered Bar" component={OrderedBar} />
+      <Stack.Screen name="Ordered Column" component={OrderedCol} />
       <Stack.Screen name="Proportional" component={Proportional} />
     </Stack.Navigator> 
     </NavigationContainer>
@@ -129,9 +130,6 @@ const styles = StyleSheet.create({
       paddingTop: 10
     },
     container:{ 
-    alignContent: 'center',
-      alignSelf: 'center',
-      alignItems: 'center',
       justifyContent: 'center',
       padding: 15,
       backgroundColor: '#40aaa8c9',
@@ -141,7 +139,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 20,
       borderRadius: 18,
       width: '40%',
-      height: 150,
+      height: 170,
       position: 'relative',
   },
   listView:{
@@ -150,7 +148,6 @@ const styles = StyleSheet.create({
   },
   containerText:{
       fontSize: 20, 
-      
       textAlign: 'center' , 
       fontWeight: '900', 
       fontFamily: 'times new roman',

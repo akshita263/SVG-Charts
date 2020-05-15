@@ -2,9 +2,10 @@ import React from 'react'
 import { BarChart, Grid } from 'react-native-svg-charts'
 import { StyleSheet, View, Text, TouchableOpacity, Alert, ScrollView } from 'react-native'
 
-export default class BarChartEx extends React.PureComponent {
+export default class DivergingBar extends React.PureComponent {
     render() {
         const fill = '#6497b1'
+        
         const data = [50, -60, 70, -30, 40, -70]
         
         return (
@@ -20,7 +21,7 @@ export default class BarChartEx extends React.PureComponent {
                 <TouchableOpacity style={styles.chart} 
                     onPress={()=> Alert.alert('The data used for this Chart:', '50, -60, 70, -30, 40, -70' )}>
                     <BarChart 
-                        style={{ height: 400, backgroundColor: 'white' }} 
+                        style={{ height: 400 }} 
                         data={data} 
                         svg={{ fill }} 
                         horizontal={true}
@@ -31,7 +32,8 @@ export default class BarChartEx extends React.PureComponent {
             
                 <View style={styles.textContainer}>
                     <Text style={styles.intro}> 
-                        This chart is build using a basic Bar Chart avaialable in the react-native-svg-charts.
+                        This chart is build using a basic Bar Chart avaialable in the 
+                        react-native-svg-charts, as they accept both positive and negative values.
                     </Text>                        
                 </View>
                 <View style={styles.textContainer}>
@@ -52,7 +54,7 @@ export default class BarChartEx extends React.PureComponent {
                     <Text style={styles.subHead}>content inset: </Text>
                     <Text style={styles.list}> 
                         Fake Margins are set inside the chart to maintain clarity.
-                        It can vary according to users choice.
+                        It can vary according to users choice. {'\n'}
                     </Text>
                 </View>
             </ScrollView>
@@ -83,7 +85,7 @@ const styles = StyleSheet.create({
         fontFamily: 'times new roman',
         textAlign: 'justify',
         padding: 30,
-        paddingTop: 0,
+        paddingTop: 10,
         paddingBottom: 0,
         fontWeight: 'bold',
         

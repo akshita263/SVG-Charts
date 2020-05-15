@@ -142,8 +142,9 @@ const styles = StyleSheet.create({
       margin:10,
       marginHorizontal: 20,
       borderRadius: 18,
+      justifyContent: 'center',
       width: '40%',
-      height: 200,
+      height: 170,
       position: 'relative',
   },
   listView:{

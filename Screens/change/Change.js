@@ -150,7 +150,8 @@ const styles = StyleSheet.create({
       marginHorizontal: 20,
       borderRadius: 18,
       width: '40%',
-      height: 200,
+      height: 170,
+      justifyContent: 'center',
       position: 'relative',
   },
   listView:{

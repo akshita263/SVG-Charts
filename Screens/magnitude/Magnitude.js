@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
     },
     container:{ 
       padding: 15,
+      justifyContent: 'center',
       backgroundColor: '#40aaa8c9',
       borderBottomColor: 'white',
       borderBottomWidth: 0,
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 20,
       borderRadius: 18,
       width: '40%',
-      height: 200,
+      height: 170,
       position: 'relative',
   },
   listView:{

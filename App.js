@@ -311,8 +311,8 @@ const styles = StyleSheet.create({
     margin:10,
     marginHorizontal: 20,
     borderRadius: 18,
-    width: '40%',
-    height: 200,
+    width: '42%',
+    height: 160,
     position: 'relative',
 },
 listView:{
